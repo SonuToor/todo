@@ -16,7 +16,11 @@ const Form = styled.form`
   min-height: 300px;
   margin: 10px 0 10px 0;
 `;
-
+const TextInputs = styled.div`
+  margin-bottom: 25%;
+  display: flex;
+  flex-direction: column;
+`;
 const EditTaskForm = ({ open, close, id }) => {
   const [title, updateTitle] = useState("");
   const [description, updateDescription] = useState("");
@@ -25,6 +29,10 @@ const EditTaskForm = ({ open, close, id }) => {
 
   const handleEdit = event => {
     event.preventDefault();
+
+    if (title === "" || description === "") {
+      return;
+    }
 
     let newTasks = tasks.map(task => {
       if (task.taskID === id)
@@ -37,17 +45,10 @@ const EditTaskForm = ({ open, close, id }) => {
     });
     setTasks(newTasks);
 
-    updateTitle("");
-    updateDescription("");
-    updateDueDate(new Date());
-
     close();
   };
 
   const reset = () => {
-    updateTitle("");
-    updateDescription("");
-    updateDueDate(new Date());
     close();
   };
 
@@ -63,21 +64,24 @@ const EditTaskForm = ({ open, close, id }) => {
       <DialogTitle style={{ textAlign: "center" }}>Edit A Task</DialogTitle>
       <DialogContent>
         <Form onSubmit={handleEdit}>
-          <TextField
-            label="Enter Title"
-            value={title}
-            required
-            onChange={e => updateTitle(e.target.value)}
-          />
-          <TextField
-            label="Enter Description"
-            multiline
-            required
-            rows="4"
-            value={description}
-            onChange={e => updateDescription(e.target.value)}
-          />
+          <TextInputs>
+            <TextField
+              label="Enter Title"
+              value={title}
+              required
+              onChange={e => updateTitle(e.target.value)}
+            />
+            <TextField
+              label="Enter Description"
+              multiline
+              required
+              rows="4"
+              value={description}
+              onChange={e => updateDescription(e.target.value)}
+            />
+          </TextInputs>
           <DatePicker
+            disabled
             value={dueDate}
             onChange={date => updateDueDate(date)}
             dayPlaceholder="dd"

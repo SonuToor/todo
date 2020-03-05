@@ -18,7 +18,7 @@ const Form = styled.form`
 `;
 
 const TextInputs = styled.div`
-  margin-bottom: 10%;
+  margin-bottom: 25%;
   display: flex;
   flex-direction: column;
 `;
@@ -31,6 +31,10 @@ const AddTaskForm = ({ open, close }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
+
+    if (title === "" || description === "") {
+      return;
+    }
 
     let newTask = {
       taskID: `${title}-${dueDate.toLocaleDateString("en-US")}`,

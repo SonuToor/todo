@@ -24,6 +24,9 @@ const List = styled.div`
 
 const Title = styled.div`
   display: flex;
+  width: 90%;
+  margin-left: 40%;
+  justify-content: space-evenly;
   color: ${props => props.theme.colors.secondary};
   font-weight: bold;
 `;

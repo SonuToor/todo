@@ -32,6 +32,7 @@ const Main = styled.div`
 const Title = styled.h1`
   text-align: center;
 `;
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
