@@ -37,7 +37,7 @@ const AddTaskForm = ({ open, close }) => {
     }
 
     let newTask = {
-      taskID: `${title}-${dueDate.toLocaleDateString("en-US")}`,
+      taskID: `${title}-${Date.now()}`,
       title: title,
       description: description,
       due: dueDate.toLocaleDateString("en-US"),

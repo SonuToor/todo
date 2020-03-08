@@ -8,9 +8,9 @@ import styled from "styled-components";
 
 const List = styled.div`
   width: 40%;
-  min-height: 200px;
   max-height: 550px;
   overflow-y: scroll;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +46,7 @@ const TodoList = () => {
           date={due}
           id={taskID}
           todo={todo}
-          key={`${title}-${description}`}
+          key={taskID}
         />
       ) : null;
     });

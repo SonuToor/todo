@@ -39,18 +39,18 @@ const TaskActions = ({ todo, id }) => {
     <>
       <Panel>
         {todo ? (
-          <IconButton onClick={handleStatus}>
+          <IconButton onClick={handleStatus} title="Done">
             <DoneIcon />
           </IconButton>
         ) : (
-          <IconButton onClick={handleStatus}>
+          <IconButton onClick={handleStatus} title="Todo">
             <ArrowBackIosIcon />
           </IconButton>
         )}
-        <IconButton onClick={() => toggleEditForm(true)}>
+        <IconButton onClick={() => toggleEditForm(true)} title="Edit">
           <EditIcon />
         </IconButton>
-        <IconButton onClick={handleDelete}>
+        <IconButton onClick={handleDelete} title="Delete">
           <DeleteIcon />
         </IconButton>
       </Panel>

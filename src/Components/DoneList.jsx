@@ -38,7 +38,7 @@ const DoneList = () => {
           date={due}
           id={taskID}
           todo={todo}
-          key={`${title}-${description}`}
+          key={taskID}
         />
       ) : null;
     });
