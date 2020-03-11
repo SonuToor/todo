@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import EditIcon from "@material-ui/icons/Edit";
+import ModalForm from "../ModalForm";
 import DoneIcon from "@material-ui/icons/Done";
 import DeleteIcon from "@material-ui/icons/Delete";
 import styled from "styled-components";
@@ -54,10 +55,11 @@ const TaskActions = ({ todo, id }) => {
           <DeleteIcon />
         </IconButton>
       </Panel>
-      <EditTaskForm
+      <ModalForm
         open={openEditForm}
         close={() => toggleEditForm(false)}
         id={id}
+        type="Edit"
       />
     </>
   );

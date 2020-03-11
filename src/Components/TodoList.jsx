@@ -2,6 +2,7 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 import AddTaskForm from "./AddTaskForm";
 import IconButton from "@material-ui/core/IconButton";
 import React, { useContext, useState } from "react";
+import ModalForm from "./ModalForm";
 import { TasksContext } from "../Contexts/TasksContext";
 import Task from "./Task/Task";
 import styled from "styled-components";
@@ -64,7 +65,11 @@ const TodoList = () => {
         </Title>
         {tasks.length !== 0 ? renderTasks() : null}
       </List>
-      <AddTaskForm open={openTasksForm} close={() => toggleTasksForm(false)} />
+      <ModalForm
+        open={openTasksForm}
+        close={() => toggleTasksForm(false)}
+        type="Add"
+      />
     </>
   );
 };
